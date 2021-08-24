@@ -1,0 +1,14 @@
+- npm init
+- npm install cypress --save-dev
+- npm i -g npx 
+- npx cypres open
+
+
+node_modules/cypress
+cypress run
+
+npx cypress run
+npx cypress run --headed // correr todos desde navegador
+npx cypress run --browser chrome // correr todos desde chrome
+npx cypress run --spec "cypress\integracion\seccion_2\Asserts.js // uno en especifico
+npx cypress run --spec "cypress\integracion\seccion_1\*" // toda la seccion_1
