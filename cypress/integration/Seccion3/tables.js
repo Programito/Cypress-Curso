@@ -100,6 +100,124 @@ describe("Elementos de una tabla", () => {
         cy.get("[type='button']").parent().should("have.class", "btn-group");
     });
 
+    it('ejercicio tablas', () => {
+        let time = 700;
+        cy.visit("https://www.seleniumeasy.com/test/table-records-filter-demo.html");
+        cy.title("eq", "Selenium Easy - Table Data Filter Demo");
+
+        cy.wait(time);
+
+        cy.get("[type='button']").eq(1).should("contain", "Green").click({force: true})
+        cy.wait(time);
+
+        cy.get("[type='checkbox']").check({force: true});
+
+        cy.get("[type='button']").eq(4).should("contain", "All").click({force: true})
+        cy.wait(time);
+
+        cy.get("[type='checkbox']").check({force: true});
+    });
+
+    it('ejercicio tablas con for', () => {
+        let time = 700;
+        cy.visit("https://www.seleniumeasy.com/test/table-records-filter-demo.html");
+        cy.title("eq", "Selenium Easy - Table Data Filter Demo");
+
+        cy.wait(time);
+
+        for(let i=1; i<5; i++){
+            cy.get("[type='button']").eq(i).click({force: true})
+            cy.wait(time);
+            cy.get("[type='checkbox']").check({force: true});
+            cy.wait(time);
+        }
+    });
+
+
+    it('ejercicio tablas con for y Assert', () => {
+        let time = 700;
+        cy.visit("https://www.seleniumeasy.com/test/table-records-filter-demo.html");
+        cy.title("eq", "Selenium Easy - Table Data Filter Demo");
+
+        cy.wait(time);
+
+        for(let i=1; i<5; i++){
+            let nameButton = ["Green","Orange","Red","All"]
+            cy.get("[type='button']").eq(i).should("contain", nameButton[i-1]).click({force: true})
+            cy.wait(time);
+            cy.get("[type='checkbox']").check({force: true});
+            cy.wait(time);
+        }
+    });
+
+    it('valores de una columna', () => {
+        let time = 700;
+        cy.visit("https://www.seleniumeasy.com/test/table-sort-search-demo.html");
+        cy.title("eq", "Selenium Easy - Tabel Sort and Search Demo");
+
+        const datos = [];
+        cy.get(".odd .sorting_1").each(($el, index,$list)=> {
+            datos[index]=$el.text()
+        }).then(()=> {
+            for(let i=0; i<datos.length; i++){
+                cy.log(datos[i])
+            }
+        });
+
+      
+    });
+
+    it('sum los valores de los campos con la clase .odd', () => {
+        let time = 700;
+        cy.visit("https://www.seleniumeasy.com/test/table-sort-search-demo.html");
+        cy.title("eq", "Selenium Easy - Tabel Sort and Search Demo");
+
+        const datos = [];
+        let cantidadOdd = 0;
+        cy.get("[role='row'] td").each(($el, index,$list)=> {
+            datos[index]=$el.text()
+        }).then(()=> {
+            for(let i=0; i<datos.length; i++){
+                cy.log(datos[i])
+                if(Number(datos[i])){
+                    cantidadOdd += Number(datos[i])
+
+                }
+            }
+            cy.log('cantidad total:' + cantidadOdd);
+            expect(cantidadOdd).to.eq(394);
+        });
+
+      
+    });
+
+    it('valor de un campo en especifico', () => {
+        let time = 700;
+        cy.visit("https://www.seleniumeasy.com/test/table-sort-search-demo.html");
+        cy.title("eq", "Selenium Easy - Tabel Sort and Search Demo");
+
+        const field = cy.get("tbody > :nth-child(7) > :nth-child(2)")
+        // cy.log(field)
+        field.each(($el, index, $list)=> {
+            const dato= $el.text()
+            cy.log(dato)
+
+            if(dato.includes("Javascript Developer")){
+                field.eq(index).next().next().then((age)=> {
+                    const Edad= age.text();
+                    cy.log(Edad);
+                    cy.log("la edad de Javascript Developer es: " + Edad)
+                    expect(Edad).to.equal('39')
+
+                })
+            }
+        });
+     
+       
+      
+    });
+
+
 
 
 });
