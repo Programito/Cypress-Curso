@@ -8,12 +8,12 @@ require('cypress-xpath')
 
 describe("Tipos de selectores", () => {
 
-    it("Selector por id", () => {
+    it.only("Selector por id", () => {
         cy.visit("https://demoqa.com/text-box");
         cy.title().should('eq','ToolsQA');
         cy.wait(1000);
 
-        cy.get("#userName").should("be.visible").type("Paco");
+        cy.get("#userName").should("be.visible",{timeout: 1000}).type("Paco");
         cy.get("#userEmail").should("be.visible").type("Paco@gmail.com");
 
     });
