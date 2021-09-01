@@ -12,3 +12,11 @@ npx cypress run --headed // correr todos desde navegador
 npx cypress run --browser chrome // correr todos desde chrome
 npx cypress run --spec "cypress\integracion\seccion_2\Asserts.js // uno en especifico
 npx cypress run --spec "cypress\integracion\seccion_1\*" // toda la seccion_1
+
+-- cucumber
+npm install --save-dev cypress-cucumber-preprocessor
+plugins/index
+cypres.json
+package.json
+
+plugins: cubumber(Gherkin)

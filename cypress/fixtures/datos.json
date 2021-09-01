@@ -1,0 +1,33 @@
+[
+    {
+    "nombre": "Pedro1",
+    "email": "Pedro1@gmail.com",
+    "dir1": "Dirección uno1",
+    "dir2": "Dirección dos1"
+  },
+  {
+    "nombre": "Pedro2",
+    "email": "Pedro2@gmail.com",
+    "dir1": "Dirección uno2",
+    "dir2": "Dirección dos2"
+  },
+  {
+    "nombre": "Pedro3",
+    "email": "Pedro3@gmail.com",
+    "dir1": "Dirección uno3",
+    "dir2": "Dirección dos3"
+  },
+  {
+    "nombre": "Pedro4",
+    "email": "Pedro4@gmail.com",
+    "dir1": "Dirección uno4",
+    "dir2": "Dirección dos4"
+  },
+  {
+    "nombre": "Pedro5",
+    "email": "Pedro5@gmail.com",
+    "dir1": "Dirección uno5",
+    "dir2": "Dirección dos5"
+  }
+]
+  
