@@ -4,6 +4,5 @@
     "chromeWebSecurity": false,
     "defaultCommandTimeout": 15000,
     "pageLoadTimeout": 19000,
-
-    "testFiles": "**/*.feature"
+    "experimentalStudio": true
 }

@@ -20,3 +20,25 @@ cypres.json
 package.json
 
 plugins: cubumber(Gherkin)
+
+--jenkins
+
+jenkins stop
+jenkins start
+
+administrar jenkins/ administrar plugins/
+GitHub Organization Folder 
+GitHub Integration 
+GitHub Pull Request Builder 
+GitHub Authentication 
+NodeJS
+Green Balls 
+Mock Agent 
+
+global tool configuration
+java jdk
+Git
+nodeJs
+
+// solo mostrar cocumber
+"testFiles": "**/*.feature"
